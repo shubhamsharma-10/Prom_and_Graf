@@ -1,3 +1,4 @@
+
 # Prom_and_Graf
 
 A Node.js/TypeScript project for exposing custom application metrics using Prometheus and visualizing them with Grafana.
@@ -11,8 +12,10 @@ A Node.js/TypeScript project for exposing custom application metrics using Prome
 ## Project Structure
 ```
 .
-├── package.json
-├── tsconfig.json
+├── assets/
+│   ├── grafana.png
+│   ├── graph.png
+│   └── metric_endpoint.png
 ├── src/
 │   ├── index.ts                # Main entry point
 │   ├── metrics/
@@ -21,6 +24,16 @@ A Node.js/TypeScript project for exposing custom application metrics using Prome
 │   │   └── requestDuration.ts
 │   └── middleware/
 │       └── metrics.middleware.ts
+├── .dockerignore
+├── .gitignore
+├── docker-compose.yml
+├── Dockerfile
+├── package.json
+├── package-lock.json
+├── prometheus.yml
+├── tsconfig.json
+├── tsconfig.tsbuildinfo
+├── README.md
 ```
 
 ## Getting Started
@@ -47,13 +60,22 @@ npm run start
 ```sh
 npm run dev
 ```
-## Usage
+## Output
 
-### Metrics Endpoint Example
-Below is an example of the metrics endpoint output:
+### Metrics Endpoint
+Below is an image of the metrics endpoint output:
 
 ![Metrics Endpoint Screenshot](assets/metric_endpoint.png)
 
+### Prometheus Visualization
+Below is an image of how the metrics appear in Prometheus:
+
+![Prometheus Graph Screenshot](assets/graph.png)
+
+### Grafana Dashboard 
+Below is an image of how the metrics appear in a Grafana dashboard:
+
+![Grafana Dashboard Screenshot](assets/grafana.png)
 1. Start the application.
 2. Metrics will be exposed at the configured endpoint (e.g., `/metrics`).
 3. Configure Prometheus to scrape the metrics endpoint.
