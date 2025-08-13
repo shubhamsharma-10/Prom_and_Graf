@@ -4,6 +4,7 @@ import { metricsMiddleware } from './middleware/metrics.middleware';
 
 const app = express();
 
+// Middleware to track metrics for incoming requests
 app.use(metricsMiddleware);
 
 app.get('/cpu', async (req, res) => {
@@ -19,6 +20,7 @@ app.get("/user", (req, res) => {
     })
 })
 
+// Endpoint to expose Prometheus metrics
 app.get("/metrics", async (req, res) => {
     const metrics = await client.register.metrics();
     res.set('Content-Type', client.register.contentType);
